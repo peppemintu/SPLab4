@@ -402,6 +402,8 @@ public:
 
 int Window::nextId = 0;
 
+
+
 void displayMenu(GameWindow* window) {
     int choice;
     do {
@@ -447,7 +449,8 @@ int main() {
         cout << "2. ChessGameWindow\n";
         cout << "3. RPGGameWindow\n";
         cout << "4. MMORPGGameWindow\n";
-        cout << "5. Exit\n";
+        cout << "5. Run 3 derived classes\n";
+        cout << "6. Exit\n";
         cout << "Enter your choice: ";
         cin >> gameChoice;
 
@@ -466,7 +469,12 @@ int main() {
         case 4:
             selectedWindow = &mmorpgWindow;
             break;
-        case 5:
+        case 5: 
+            rpsWindow.doAction();
+            chessWindow.doAction();
+            rpgWindow.doAction();
+            break;
+        case 6:
             break;
         default:
             cout << "Invalid choice. Please try again.\n";
@@ -476,7 +484,7 @@ int main() {
             displayMenu(selectedWindow);
         }
 
-    } while (gameChoice != 5);
+    } while (gameChoice != 6);
 
     return 0;
 }
